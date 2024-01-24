@@ -1,35 +1,34 @@
->>>>>>>>>> PairProOps  <<<<<<<<<<<<
-User memiliki banyak PreOrder (One-to-Many).
-Game memiliki banyak PreOrder (One-to-Many).
-PreOrder memiliki satu User dan satu Game (Many-to-One).
+1. Route
 
-##
-kita akan mendemonstrasikan 3 tabel
+- Home Landing Page \*
+- Menampilkan seluruh data Users (Anchor ke masing-masing role) \*
+- Menampilkan seluruh data PreOrders beserta Categorynya \*
+- Membuat fitur login (pair programming)
+- CRUD dari data Course \*
+- Membuat fitur search atau sort \*
+- Hooks untuk merubah password \*
+- Validasi notEmpty, notNull, isEmail, len (8 karakter) untuk password \*
+- Handle errornya di route tersebut \*
+- Await > 1 \*
+- Helper untuk mendapatkan price ke IDR & dipanggil di getter \*
+- Static method dipanggil di hooks \*
 
-id (Primary Key)
-username (Optional)
-email (Unique, Not Null, Email Format)
-password (Not Null, Minimum Length: 8)
-role
-Game:
+2. Database
 
-id (Primary Key)
-title (Not Null)
-description (Not Null)
-releaseDate (Not Null)
-price (Not Null, Minimum Price: Bebas)
-imgUrl (Not Null)
-developer (Not Null)
-publisher (Not Null)
-createdAt
-updatedAt
-PreOrder:
+- Model & migration \*
+- Seed all data \*
+- Add Migration (bebas) \*
 
-id (Primary Key)
-userId (Foreign Key referencing User)
-gameId (Foreign Key referencing Game)
-orderDate (Not Null)
-totalAmount (Not Null, Minimum Amount: Bebas)
-status (Not Null, Contoh: "Pending", "Completed")
-createdAt
-updatedAt
+3. Database Name & Table Name
+
+- PairProOps (db Name) \*
+- Users, Games, PreOrders, Categories, UsesPreOrders (Table Name) \*
+
+4. List of Package
+
+- pg \*
+- sequelize \*
+- ejs \*
+- express \*
+  -bcypt\*
+  -express-session \*
