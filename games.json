@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "title": "Assassin's Creed Valhalla",
+    "description": "Deskripsi game Assassin's Creed Valhalla.",
+    "releaseDate": "2020-11-10",
+    "price": 900000,
+    "imgUrl": "https://example.com/ac-valhalla-image.jpg",
+    "developer": "Ubisoft Montreal",
+    "publisher": "Ubisoft",
+    "preOrders": [
+      {
+        "id": 3,
+        "userId": 3,
+        "orderDate": "2024-01-26T15:45:00Z",
+        "totalAmount": 900000,
+        "status": "Pending"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Cyberpunk 2077",
+    "description": "Deskripsi game Cyberpunk 2077.",
+    "releaseDate": "2020-12-10",
+    "price": 5000000,
+    "imgUrl": "https://example.com/cyberpunk-2077-image.jpg",
+    "developer": "CD Projekt",
+    "publisher": "CD Projekt",
+    "preOrders": [
+      {
+        "id": 2,
+        "userId": 2,
+        "orderDate": "2024-01-25T09:30:00Z",
+        "totalAmount": 5000000,
+        "status": "Completed"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Black Ops Cold War",
+    "description": "Deskripsi game Black Ops Cold War.",
+    "releaseDate": "2023-12-10",
+    "price": 3000000,
+    "imgUrl": "https://example.com/Black-Ops-Cold-War-2097-image.jpg",
+    "developer": "CD Projekt",
+    "publisher": "CD Projekt",
+    "preOrders": [
+      {
+        "id": 1,
+        "userId": 2,
+        "orderDate": "2024-01-25T09:30:00Z",
+        "totalAmount": 3000000,
+        "status": "Completed"
+      }
+    ]
+  }
+]
