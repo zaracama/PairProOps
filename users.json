@@ -1,51 +1,27 @@
 [
    {
      "id": 2,
-     "username": "another_user",
-     "email": "another_user@example.com",
-     "password": "hashed_password_2",
-     "role": "user",
-     "preOrders": [
-       {
-         "id": 2,
-         "gameId": 3,
-         "orderDate": "2024-01-25T09:30:00Z",
-         "totalAmount": 5000000,
-         "status": "Completed"
-       }
-     ]
+     "username": "LaylaNurdhana",
+     "email": "LaylaNurdhana@grock.com",
+     "password": "123Akucantik11",
+     "role": "user"
+     
    },
    {
      "id": 3,
-     "username": "third_user",
-     "email": "third_user@example.com",
-     "password": "hashed_password_3",
-     "role": "admin",
-     "preOrders": [
-       {
-         "id": 3,
-         "gameId": 2,
-         "orderDate": "2024-01-26T15:45:00Z",
-         "totalAmount": 3000000,
-         "status": "Pending"
-       }
-     ]
+     "username": "BalmonGorengan",
+     "email": "BalmonGorengan@rocket.co.id",
+     "password": "123Gorenganbang77",
+     "role": "admin"
+     
    },
    {
      "id": 1,
-     "username": "second_user",
-     "email": "second_user@example.com",
-     "password": "blurred_password_3",
-     "role": "admin",
-     "preOrders": [
-       {
-         "id": 1,
-         "gameId": 1,
-         "orderDate": "2024-01-26T15:45:00Z",
-         "totalAmount": 9000000,
-         "status": "Pending"
-       }
-     ]
+     "username": "ManusiaGrock",
+     "email": "ManusiaGrock@Landown.com",
+     "password": "123ManusiaBatu11",
+     "role": "admin"
+     
    }
  ]
  

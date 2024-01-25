@@ -1,0 +1,20 @@
+[
+   {
+      "name": "Layla Nurdhana",
+      "dateOfBirth": "2005-09-27",
+      "gender": "Female",
+      "UserId": 2
+   },
+   {
+      "name": "Balmon Gorengan",
+      "dateOfBirth": "2011-11-11",
+      "gender": "Male",
+      "UserId": 3
+   },
+   {
+      "name": "Manusia Grock",
+      "dateOfBirth": "2007-07-07",
+      "gender": "Male",
+      "UserId": 1
+   }
+]
