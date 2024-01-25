@@ -2,9 +2,9 @@
 
 - Home Landing Page \*
 - Menampilkan seluruh data Users (Anchor ke masing-masing role) \*
-- Menampilkan seluruh data PreOrders beserta Categorynya \*
+- Menampilkan seluruh data Games beserta Categorynya \*
 - Membuat fitur login (pair programming)
-- CRUD dari data Course \*
+- CRUD dari data Games \*
 - Membuat fitur search atau sort \*
 - Hooks untuk merubah password \*
 - Validasi notEmpty, notNull, isEmail, len (8 karakter) untuk password \*
@@ -21,8 +21,8 @@
 
 3. Database Name & Table Name
 
-- PairProOps (db Name) \*
-- Users, Games, PreOrders, Categories, UsesPreOrders (Table Name) \*
+- Pair-Pro-Ops (db Name) \*
+- Users, Games, Profiles, Categories, UserGames (Table Name) \*
 
 4. List of Package
 
@@ -30,5 +30,7 @@
 - sequelize \*
 - ejs \*
 - express \*
-  -bcypt\*
+  -sequelie-cli\*
+  -bcrypt\*
+  -nodemon \*
   -express-session \*
