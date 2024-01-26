@@ -131,11 +131,9 @@
     <h1>Buy <%= game.title %></h1>
     <p>You are purchasing <%= game.title %> for <%= price %> IDR.</p>
 
-    <!-- Formulir Pembelian -->
     <form action="/purchase" method="post">
         <input type="hidden" name="gameId" value="<%= game.id %>">
 
-        <!-- Isi formulir pembelian -->
         <label for="address">Shipping Address:</label>
         <input type="text" id="address" name="address" required>
 
@@ -143,10 +141,7 @@
         <select id="paymentMethod" name="paymentMethod" required>
             <option value="creditCard">Credit Card</option>
             <option value="bankTransfer">Bank Transfer</option>
-            <!-- Add other payment methods as needed -->
         </select>
-
-        <!-- Add more fields as needed -->
 
         <button type="submit">Complete Purchase</button>
     </form>

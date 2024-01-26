@@ -6,154 +6,224 @@ const categoriesData = require('../data/categories.json');
 
 class Controller {
   static async home(req, res) {
-    res.render('home', { message: req.query.message });
+    try {
+      res.render('home', { message: req.query.message });
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
+    }
   }
 
   static async login(req, res) {
-    const { username, password } = req.body;
-    const user = users.find(user => user.username === username);
+    try {
+      const { username, password } = req.body;
+      const user = users.find(user => user.username === username);
 
-    if (user && await bcrypt.compare(password, user.password)) {
-      res.redirect('/games');
-    } else {
-      res.redirect('/?message=Invalid credentials');
+      if (user && await bcrypt.compare(password, user.password)) {
+        res.redirect('/games');
+      } else {
+        res.redirect('/?message=Invalid credentials');
+      }
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
     }
   }
 
   static async signup(req, res) {
-    res.render('signup');
+    try {
+      res.render('signup');
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
+    }
   }
 
   static async signupPost(req, res) {
-    const { username, email, password, confirmPassword } = req.body;
+    try {
+      const { username, email, password, confirmPassword } = req.body;
 
-    const existingUser = users.find(user => user.username === username || user.email === email);
+      const existingUser = users.find(user => user.username === username || user.email === email);
 
-    if (existingUser) {
-      return res.redirect('/signup?message=Username or email already exists');
+      if (existingUser) {
+        return res.redirect('/signup?message=Username or email already exists');
+      }
+
+      const hashedPassword = await bcrypt.hash(password, 10);
+
+      const newUser = {
+        id: users.length + 1,
+        username,
+        email,
+        password: hashedPassword,
+        role: 'user',
+      };
+
+      users.push(newUser);
+
+      res.redirect('/games');
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
     }
-
-    const hashedPassword = await bcrypt.hash(password, 10);
-
-    const newUser = {
-      id: users.length + 1,
-      username,
-      email,
-      password: hashedPassword,
-      role: 'user',
-    };
-
-    users.push(newUser);
-
-    res.redirect('/games');
   }
 
   static async logout(req, res) {
-    res.redirect('/');
+    try {
+      res.redirect('/');
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
+    }
   }
 
   static async games(req, res) {
-    res.render('games', { games: gamesData, findGamePrice: (gameTitle) => helper.findGamePrice(categoriesData, gameTitle) });
+    try {
+      res.render('games', { games: gamesData, findGamePrice: (gameTitle) => helper.findGamePrice(categoriesData, gameTitle) });
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
+    }
   }
 
   static async gameDetails(req, res) {
-    const gameId = parseInt(req.params.id);
-    const game = gamesData.find(game => game.id === gameId);
+    try {
+      const gameId = parseInt(req.params.id);
+      const game = gamesData.find(game => game.id === gameId);
 
-    if (game) {
-      const price = helper.findGamePrice(categoriesData, game.title);
-      res.render('gameDetails', { game, price });
-    } else {
-      res.send('Game not found');
+      if (game) {
+        const price = helper.findGamePrice(categoriesData, game.title);
+        res.render('gameDetails', { game, price });
+      } else {
+        res.send('Game not found');
+      }
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
     }
   }
 
   static async buy(req, res) {
-    const gameId = parseInt(req.params.id);
-    const game = gamesData.find(game => game.id === gameId);
+    try {
+      const gameId = parseInt(req.params.id);
+      const game = gamesData.find(game => game.id === gameId);
 
-    if (game) {
-      res.render('buy', { game, price: helper.findGamePrice(categoriesData, game.title) });
-    } else {
-      res.send('Game not found');
+      if (game) {
+        res.render('buy', { game, price: helper.findGamePrice(categoriesData, game.title) });
+      } else {
+        res.send('Game not found');
+      }
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
     }
   }
 
   static async purchase(req, res) {
-    const gameId = parseInt(req.body.gameId);
-    const game = gamesData.find(game => game.id === gameId);
+    try {
+      const gameId = parseInt(req.body.gameId);
+      const game = gamesData.find(game => game.id === gameId);
 
-    if (game) {
-      res.send(`Purchase completed for ${game.title}.`);
-    } else {
-      res.send('Game not found');
+      if (game) {
+        res.send(`Purchase completed for ${game.title}.`);
+      } else {
+        res.send('Game not found');
+      }
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
     }
   }
 
   static async sellForm(req, res) {
-    res.render('sell');
+    try {
+      res.render('sell');
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
+    }
   }
 
   static async sellGame(req, res) {
-    const { gameName, gamePrice, gameDescription, gameImage } = req.body;
+    try {
+      const { gameName, gamePrice, gameDescription, gameImage } = req.body;
 
-    const newGame = {
-      id: gamesData.length + 1,
-      title: gameName,
-      description: gameDescription,
-      imageURL: gameImage,
-    };
+      const newGame = {
+        id: gamesData.length + 1,
+        title: gameName,
+        description: gameDescription,
+        imageURL: gameImage,
+      };
 
-    gamesData.push(newGame);
+      gamesData.push(newGame);
 
-    res.redirect('/games');
+      res.redirect('/games');
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
+    }
   }
 
   static async deleteGame(req, res) {
-    const gameId = parseInt(req.params.id);
-    const index = gamesData.findIndex(game => game.id === gameId);
+    try {
+      const gameId = parseInt(req.params.id);
+      const index = gamesData.findIndex(game => game.id === gameId);
 
-    if (index !== -1) {
-      gamesData.splice(index, 1);
-      res.redirect('/games');
-    } else {
-      res.send('Game not found');
+      if (index !== -1) {
+        gamesData.splice(index, 1);
+        res.redirect('/games');
+      } else {
+        res.send('Game not found');
+      }
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
     }
   }
 
   static async updateForm(req, res) {
-    const gameId = parseInt(req.params.id);
-    const game = gamesData.find(game => game.id === gameId);
+    try {
+      const gameId = parseInt(req.params.id);
+      const game = gamesData.find(game => game.id === gameId);
 
-    if (game) {
-      const price = helper.findGamePrice(categoriesData, game.title);
-      res.render('update', { game, price });
-    } else {
-      res.send('Game not found');
+      if (game) {
+        const price = helper.findGamePrice(categoriesData, game.title);
+        res.render('update', { game, price });
+      } else {
+        res.send('Game not found');
+      }
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
     }
   }
 
   static async updateGame(req, res) {
-    const gameId = parseInt(req.params.id);
-    const { gameName, gamePrice, gameDescription, gameImage } = req.body;
-    const gameIndex = gamesData.findIndex(game => game.id === gameId);
-
-    if (gameIndex !== -1) {
-      // Update properti game yang diperlukan
-      gamesData[gameIndex] = {
-        ...gamesData[gameIndex],
-        title: gameName,
-        description: gameDescription,
-        imageURL: gameImage,
-        price: parseFloat(gamePrice), // Konversi harga menjadi angka jika diperlukan
-      };
+    try {
+      const gameId = parseInt(req.params.id);
+      const { gameName, gamePrice, gameDescription, gameImage } = req.body;
   
-      const updatedGame = gamesData[gameIndex]; // Ambil objek game yang telah diperbarui
+      const gameIndex = gamesData.findIndex(game => game.id === gameId);
 
-      const price = helper.findGamePrice(categoriesData, gameName);
-      res.render('update', { game: updatedGame, price });
-    } else {
-      res.status(404).send('Game not found');
+      if (gameIndex !== -1) {
+        gamesData[gameIndex] = {
+          ...gamesData[gameIndex],
+          title: gameName,
+          description: gameDescription,
+          imageURL: gameImage,
+          price: parseFloat(gamePrice), 
+        };
+    
+        const updatedGame = gamesData[gameIndex]; 
+  
+        const price = helper.findGamePrice(categoriesData, gameName);
+        res.render('update', { game: updatedGame, price });
+      } else {
+        res.send('Game not found');
+      }
+    } catch (error) {
+      console.error(error);
+      res.send('Internal Server Error');
     }
   }
 }

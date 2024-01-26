@@ -129,19 +129,16 @@
     <p>Price: Not available</p>
     <% } %>
 
-    <!-- Add delete button -->
     <form action="/delete/<%= game.id %>" method="post" style="display:inline;">
         <button type="submit">Delete</button>
     </form>
 
     <a href="/games">Back to Games</a>
 
-    <!-- Tombol Buy -->
     <form action="/buy/<%= game.id %>" method="get">
         <button type="submit">Buy</button>
     </form>
 
-    <!-- Add update button -->
     <a href="/update/<%= game.id %>">Update</a>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
