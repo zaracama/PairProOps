@@ -1,4 +1,4 @@
-o Route
+o Map
 
 - Home Landing Page \*
 - Membuat fitur login (pair programming)
