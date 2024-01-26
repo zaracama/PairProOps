@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "title": "Assassin's Creed Valhalla",
+    "description": "Become Eivor, a Viking raider raised to be a fearless warrior, and lead your clan from icy desolation in Norway to a new home amid the lush farmlands of ninth-century England.",
+    "imageURL": "https://image.api.playstation.com/vulcan/ap/rnd/202008/0723/i2ICFMr0Ius6qtYYD9GNrY68.jpg",
+    "developer": "Ubisoft",
+    "publisher": "Ubisoft",
+    "GameId": 1
+  },
+  {
+    "id": 2,
+    "title": "Cyberpunk 2077",
+    "description": "Cyberpunk 2077 is an open-world, action-adventure RPG set in the megalopolis of Night City.",
+    "imageURL": "https://static.cdprojektred.com/cms.cdprojektred.com/16x9_big/b9ea2dc46d95cf9fa3f77209e27ae7a6488368f1-1280x720.jpg",
+    "developer": "CD Projekt",
+    "publisher": "CD Projekt",
+    "GameId": 2
+  },
+  {
+    "id": 3,
+    "title": "Call Of Duty Black Ops Cold War",
+    "description": "Black Ops Cold War, the direct sequel to Call of Duty®: Black Ops, will drop fans into the depths of the Cold War's volatile geopolitical battle of the early 1980s.",
+    "imageURL": "https://xxboxnews.blob.core.windows.net/prod/sites/2/2020/11/BOCW_Standard_X1_Wire_Hero_3840x2160.jpg",
+    "developer": "Treyarch",
+    "publisher": "Activision",
+    "GameId": 3
+  }
+]

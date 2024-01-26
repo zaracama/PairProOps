@@ -11,7 +11,7 @@ module.exports = {
      *   name: 'John Doe',
      *   isBetaMember: false
      * }], {});
-    */const categoryData = require("../categories.json")
+    */const categoryData = require("../data/categories.json")
    .map(el =>{
     delete el.id;
     el.createdAt = el.updatedAt = new Date();
