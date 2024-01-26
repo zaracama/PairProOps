@@ -1,15 +1,16 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const port = 3000;
+const bodyParser = require('body-parser');
+const router = require('./router');
 
-app.set("view engine", "ejs");
-app.use(express.urlencoded({extended: false}));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(express.static('public'));
 
-app.use("/", require("./routes/index"));
+app.set('view engine', 'ejs');
 
-app.listen(port, () =>{
-    console.log(`Example app listening on port ${port}`);
+app.use('/', router);
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
-
-
-

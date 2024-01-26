@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update <%= game.title %></title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <style>
+    body {
+      background-color: #f8f9fa;
+      color: #343a40;
+      padding: 20px;
+    }
+
+    h1 {
+      color: #dc3545;
+    }
+
+    form {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      color: #dc3545;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 12px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #dc3545;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #bd2130;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Update <%= game.title %></h1>
+
+  <img src="<%= game.imageURL %>" alt="<%= game.title %> Image">
+
+  <form action="/update/<%= game.id %>" method="post" enctype="multipart/form-data">
+    <label for="gameName">Game Name:</label>
+    <input type="text" id="gameName" name="gameName" value="<%= game.title %>" required>
+
+    <label for="gamePrice">Game Price:</label>
+    <input type="text" id="gamePrice" name="gamePrice" value="<%= price %>" required>
+
+    <label for="gameDescription">Game Description:</label>
+    <textarea id="gameDescription" name="gameDescription" required><%= game.description %></textarea>
+
+    <label for="gameImage">Game Image URL:</label>
+    <input type="url" id="gameImage" name="gameImage" value="<%= game.imageURL %>" required>
+
+    <button type="submit">Update Game</button>
+  </form>
+
+  <a href="/games">Back to Games</a>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
