@@ -4,36 +4,37 @@ module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Games', {
       id: {
+        allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
-        type: Sequelize.STRING,
-        allowNull: false,
+      name: {
+        type: Sequelize.STRING
       },
-      description: {
-        type: Sequelize.STRING,
-        allowNull: false,
+      productionYear: {
+        type: Sequelize.STRING
       },
-      imageURL: {
-        type: Sequelize.STRING,
-        allowNull: false,
+      stock: {
+        type: Sequelize.INTEGER
+      },
+      color: {
+        type: Sequelize.STRING
       },
       developer: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: Sequelize.STRING
       },
       publisher: {
-        type: Sequelize.STRING,
-        allowNull: false,
+        type: Sequelize.STRING
       },
-      GameId: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: "Categories"
-        }
+      price: {
+        type: Sequelize.INTEGER
+      },
+      description: {
+        type: Sequelize.TEXT
+      },
+      imageURL: {
+        type: Sequelize.STRING
       },
       createdAt: {
         allowNull: false,
