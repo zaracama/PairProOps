@@ -2,66 +2,33 @@
 const {
   Model
 } = require('sequelize');
+
+const bcrypt = require(`bcryptjs`)
+
 module.exports = (sequelize, DataTypes) => {
   class User extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
     static associate(models) {
-      User.hasOne(models.Profile, {
-        foreignKey: 'UserId'
-      });
+      User.hasOne(models.UserProfile)
+      User.hasMany(models.Order)
+      User.belongsToMany(models.Game, {through: "Order"})
     }
   }
-  User.init(
-    {
-      username: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notNull: {
-            msg: `Username is required`,
-          },
-          notEmpty: {
-            msg: `Username is required`,
-          },
-        },
-      },
-      email: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        unique: true,
-        validate: {
-          notNull: {
-            msg: `Email is required`,
-          },
-          notEmpty: {
-            msg: `Email is required`,
-          },
-        },
-      },
-      password: {
-        type: DataTypes.STRING,
-        allowNull: false,
-        validate: {
-          notNull: {
-            msg: `Password is required`,
-          },
-          notEmpty: {
-            msg: `Password is required`,
-          },
-          len: {
-            args: [17],
-            msg: `Password minimal seventeen characters`,
-          },
-        },
+  User.init({
+    username: DataTypes.STRING,
+    password: DataTypes.STRING,
+    email: DataTypes.STRING,
+    role: DataTypes.STRING
+  }, {
+    hooks: {
+      beforeCreate(instance){
+        const salt = bcrypt.genSaltSync(5);
+        const hash = bcrypt.hashSync(instance.password, salt);
+
+        instance.password = hash
       }
     },
-    {
-      sequelize,
-      modelName: 'User',
-    });
+    sequelize,
+    modelName: 'User',
+  });
   return User;
 };

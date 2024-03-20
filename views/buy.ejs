@@ -1,155 +1,107 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Buy <%= game.title %></title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
     <style>
-        body {
-            background-color: #f8f9fa;
-            color: #343a40;
-            padding: 20px;
-        }
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f8f9fa; /* Light gray background color */
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        h1 {
-            color: #dc3545;
-        }
+      /* Center the content */
+      .container {
+        max-width: 600px;
+        margin: 50px auto;
+        background-color: #fff; /* White background color */
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+      }
 
-        .navbar {
-            background-color: #f8f9fa;
-        }
+      h1 {
+        color: #007bff; /* Blue color */
+      }
 
-        .navbar-brand,
-        .navbar-nav .nav-link {
-            color: #343a40 !important;
-        }
+      img {
+        width: 50%;
+        height: auto;
+        border-radius: 8px;
+        margin: 20px auto; /* Center the image horizontally */
+        display: block;
+      }
 
-        .navbar-toggler-icon {
-            background-color: #343a40;
-        }
+      form {
+        text-align: center;
+      }
 
-        .form-control {
-            background-color: #ced4da;
-        }
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
 
-        .btn-outline-success {
-            border-color: #dc3545;
-            color: #dc3545;
-        }
+      input,
+      select {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 15px;
+        border: 1px solid #ced4da; /* Bootstrap's gray border color */
+        border-radius: 4px;
+        box-sizing: border-box;
+      }
 
-        .btn-outline-success:hover {
-            background-color: #dc3545;
-            color: #fff;
-        }
+      button {
+        background-color: #28a745; /* Bootstrap's success green color */
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
 
-        label {
-            color: #dc3545;
-            margin-top: 10px;
-        }
-
-        input,
-        select {
-            width: 100%;
-            padding: 8px;
-            margin-bottom: 12px;
-            border: 1px solid #ced4da;
-            border-radius: 4px;
-            box-sizing: border-box;
-        }
-
-        button {
-            background-color: #dc3545;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            margin-top: 10px;
-        }
-
-        button:hover {
-            background-color: #bd2130;
-        }
-
-        a {
-            color: #007bff;
-            text-decoration: none;
-            margin-top: 10px;
-            display: inline-block;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
+      button:hover {
+        background-color: #218838; /* Darker green color on hover */
+      }
     </style>
-</head>
+  </head>
+  <body>
+    <%- include('../partials/_navbar') %>
 
-<body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#" style="color: #343a40;">Navbar</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#" style="color: #343a40;">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#" style="color: #343a40;">Link</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false" style="color: #343a40;">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#" style="color: #343a40;">Action</a></li>
-                            <li><a class="dropdown-item" href="#" style="color: #343a40;">Another action</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#" style="color: #343a40;">Something else here</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link disabled" aria-disabled="true" style="color: #343a40;">Disabled</a>
-                    </li>
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
+    <div class="container">
+      <h1>Buy Now</h1>
 
-    <h1>Buy <%= game.title %></h1>
-    <p>You are purchasing <%= game.title %> for <%= price %> IDR.</p>
+      <div>
+        <img src="<%= carData.carImage %>" alt="Car Picture" />
+        <h3><%= carData.title %></h3>
+      </div>
 
-    <form action="/purchase" method="post">
-        <input type="hidden" name="gameId" value="<%= game.id %>">
+      <div>
+        <form action="http://localhost:3000/cars/buy/<%= carData.id %>" method="post">
+          <input style="visibility: hidden" type="number" name="UserId" value="<%= userData.id %>" />
+          <input style="visibility: hidden" type="number" name="CarId" value="<%= carData.id %>" /><br />
 
-        <label for="address">Shipping Address:</label>
-        <input type="text" id="address" name="address" required>
+          <label for="totalAmount">Total After Tax Amount</label><br />
+          <input type="number" name="totalAmount" value="<%= carData.afterTax %>" /><br /><br />
 
-        <label for="paymentMethod">Payment Method:</label>
-        <select id="paymentMethod" name="paymentMethod" required>
-            <option value="creditCard">Credit Card</option>
-            <option value="bankTransfer">Bank Transfer</option>
-        </select>
+          <label for="shippingAddress">Shipping Address</label><br />
+          <input type="text" name="shippingAddress" value="<%= userData.UserProfile.address %>" /><br /><br />
 
-        <button type="submit">Complete Purchase</button>
-    </form>
+          <label for="paymentMethod">Payment Method</label><br />
+          <select name="paymentMethod">
+            <option value="" selected disabled>--Select Payment Method--</option>
+            <option value="Cash">Cash</option>
+            <option value="Credit">Credit</option></select
+          ><br /><br />
 
-    <a href="/games">Back to Games</a>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-</body>
-
+          <button type="submit">Buy Car</button>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>

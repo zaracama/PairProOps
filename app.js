@@ -1,16 +1,29 @@
-const express = require('express');
+const express = require(`express`);
 const app = express();
-const bodyParser = require('body-parser');
-const router = require('./router');
+const port = 3157;
+const routes = require(`./routes`);
+const session = require(`express-session`);
 
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static('public'));
+app.set(`view engine`, `ejs`);
 
-app.set('view engine', 'ejs');
+app.use(express.urlencoded({ extended: false }));
 
-app.use('/', router);
+app.use(
+  session({
+    secret: "kuwi secret",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      secure: false,
+      sameSite: true,
+    },
+  })
+);
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
+app.use(express.static("public"));
+
+app.use(`/`, routes);
+
+app.listen(port, () => {
+  console.log(`tes`);
 });
