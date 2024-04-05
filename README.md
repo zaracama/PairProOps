@@ -3,7 +3,7 @@
   <img src="./img/logo.jpg" width="150px" alt="Logo">
 </div>
 
------
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
 
 <div align="center">
   <img src="https://img.shields.io/badge/Javascript-ES6-yellow.svg">
@@ -18,8 +18,12 @@
  o> Description
   Proops is an Project for managing a collection of Game, allowing users to buy, sell, and view details about their Game.This documentation provides details on the available endpoints and how to use them.
 
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
+
 # Getting Started
  To get started with the Proops, follow these steps:
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
 
 # Clone the repository.
  - Install dependencies using npm install(npm i).
@@ -28,6 +32,8 @@
  - Start the client with npm run dev.
 
 o> Install them using `npm install`.
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
 
 # Note
 I'm really sorry for the project we made,Raps team it still can't support mobile due to time. Maybe the mobile version is still coming soon
@@ -64,3 +70,5 @@ o List of Package
   -sequelie-cli\*
   -bcrypt\*
   -nodemon \*
+
+<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif"><br><br>
